@@ -1,16 +1,110 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+bbrest/__pycache__
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
 *.ipynb
 .ipynb*
-config.py
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Environments
 .env
-*.egg-info
-dist
-.DS_STORE
-bbrest/__pycache__
+.env.*
 .venv
-.idea
-*transcrypt*
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
 *.vscode*
-__pycache__
+.idea
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_STORE
+Thumbs.db
+
+# Poetry
+poetry.lock
+
+# Project specific
+config.py
+*transcrypt*
 *.csv
 *log
 *txt
+
+# Sphinx documentation
+docs/_build/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Environment variables file
+.env

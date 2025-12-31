@@ -242,13 +242,18 @@ class BbRest:
             def_param_string = ", ".join(def_params)
             param_string = ", ".join(params)
 
+            # Create function in local scope
+            local_scope = {}
             exec(
-                f"""def {function}({def_param_string}): return self.call('{function}', **clean_kwargs({param_string}))"""
+                f"""def {function}({def_param_string}): return self.call('{function}', **clean_kwargs({param_string}))""",
+                {"self": self, "clean_kwargs": clean_kwargs},
+                local_scope
             )
-            exec(
-                f"""{function}.__doc__ = '''{description}\nParameters:\n{parameters}\nPermissions:\{permissions} '''"""
-            )
-            exec(f"""self.{function} = types.MethodType({function},self)""")
+            # Get the function from local scope and set its docstring
+            func = local_scope[function]
+            func.__doc__ = f'''{description}\nParameters:\n{parameters}\nPermissions:{permissions} '''
+            # Bind it as a method
+            setattr(self, function, types.MethodType(func, self))
 
             # One way to get async methods is to generate them all
             # I opted to use a keyword argument instead, asynch,
